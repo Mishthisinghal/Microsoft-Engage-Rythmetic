@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    height: 100vh;
+    background-image: linear-gradient(
+90deg, #f66e6e, #f0d19aed);
+}
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* margin: 50px; */
+}
+
+h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+form{
+    width: 75%;
+}
+
+.data{
+    display: inline-block;
+    padding: 10px;
+    width: 80%;
+}
+
+.btn{
+    width: 15%;
+    border: 2px solid black;
+    border-radius: 40px;
+    background-color: #e44848;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+}
+
+#button{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+#photo{
+    padding-top: 3%;
+    justify-content: center;
+    align-items: center; 
+}
+#canvas{
+    width: 49%;
+    display: none;
+    top:100;
+    left: 100;
+    position: absolute;
+    z-index: 100;
+    
+}
+canvas{
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+#canvasreg{
+    width: 49%;
+}
+#image{
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+#test{
+    width: 200px;
+    height: 200px; 
+}
+/* making responsive */
+@media only screen and (max-width:780px){
+    #photo{
+        display: flex;
+        flex-direction: column;
+    } 
+    #video{
+        width: 80%;
+    }
+    #canvas{
+        width: 81%;
+    }
+    #button{
+        display: flex;
+        flex-direction: column;
+    }
+    .btn{
+        width: 40%;
+    }
+}
