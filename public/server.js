@@ -5,6 +5,7 @@ let password = document.querySelector("#password");
 let proceed=document.querySelector('.btn');
 let dbname=document.getElementById('dbname').innerText;
 let imgurl=document.getElementById('dbimg').innerText;
+let progress=document.getElementById('progress');
 
 // const mymodule=require('./analyze');
 
@@ -31,15 +32,18 @@ click_button.addEventListener('click',async function() {
     let image = convertCanvasToImage();
     detectimage(image)
     password.value="abc";
+    progress.innerHTML="Processing....";
     
 });
 
 function convertCanvasToImage() {
     let canvas = document.getElementById("canvas");
+    let size = document.querySelector("#image");
+    
     let image = new Image();
     image.src = canvas.toDataURL();
-    image.width=canvas.width;
-    image.height=canvas.height;
+    image.width=240;
+    image.height=170;
     return image;
   }
  
@@ -77,13 +81,14 @@ async function detectimage(image){
 
     // console.log(mymodule.name);
     const resizedDetections=faceapi.resizeResults(detections,displaySize);
-
     const results=resizedDetections.map(d=>faceMatcher.findBestMatch(d.descriptor))
     results.forEach((result,i)=>{
         const box=resizedDetections[i].detection.box
         const drawBox=new faceapi.draw.DrawBox(box,{label:result.toString()})
         drawBox.draw(canvas)
         password.value=result.toString().substr(0,7);
+        progress.innerHTML="Done!"
+        document.getElementById('loginbtn').removeAttribute('disabled');
         console.log(password.value);
     });
     
