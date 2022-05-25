@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="register.css">
+  <script defer src="face-api.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <div class="main">
+    <h1>Create your Account</h1>
+    <form action="#" method="post">
+
+      <!-- {{#if msg}}<div class="alert alert-danger d-flex align-items-center" role="alert">
+        <div>
+          {{msg}}
+        </div>
+      </div>{{/if}} -->
+      <div class="form">
+        <input class="data" type="text" name="name" placeholder="Username"><br>
+        <input class="data" type="email" name="email" placeholder="Email">
+       
+      </div>
+    </form>
+    <div id="photo">
+    <video id="video" width="49%" height="200" autoplay muted></video>
+    <canvas id="canvas" height="215"></canvas><br><br></div>
+    <div id="button">
+    <button class="btn" id="click-photo">Capture Image</button>
+    <button class="btn" type="submit" value="Signup">Sign Up</button></div>
+    <p>Already have an account?<a href="#">Log In</a></p>
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+input {
+    margin-top: 0.5rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    color: rgb(194, 191, 191);
+    font-size: larger;
+    text-align: center;
+}
+
+#photo{
+    border: none;
+    box-shadow: none;
+}

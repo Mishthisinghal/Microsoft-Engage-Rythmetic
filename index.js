@@ -55,32 +55,44 @@ app.use(express.static(public_path));
 app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
-    res.render('register')
+    res.render('index')
 })
 
 app.get('/login', (req, res) => {
     res.render('login')
 })
 
-app.get('/initial', (req, res) => {
-    res.render('initial')
+app.get('/mood', (req, res) => {
+    res.render('mood')
+})
+app.get('/ecomm', (req, res) => {
+    res.render('ecomm')
+})
+app.post('/mood', (req, res) => {
+    const mood=req.body.moodtype;
+    console.log(mood);
+    res.render('filter',{moodtype:mood});
 })
 
-app.post('/initial',async (req,res)=>{
+app.get('/verify', (req, res) => {
+    res.render('verify')
+})
+
+app.post('/login',async (req,res)=>{
     try{
         if(req.body.email){
             const email = req.body.email;
             const usermail = await Register.findOne({ email: email }) 
 
             if(usermail){
-                res.status(200).render('login',{username:usermail.name,imgurl:usermail.img});
+                res.status(200).render('verify',{username:usermail.name,imgurl:usermail.img});
 
             }else{
-                res.render('initial',{ msg: 'Error: Invalid Email' }) 
+                res.render('login',{ msg: 'Error: Invalid Email' }) 
             }
         }
         else{
-            res.render('initial',{ msg: 'Please fill in all the details.' })
+            res.render('login',{ msg: 'Please fill in all the details.' })
         }
 
     }
@@ -89,27 +101,27 @@ app.post('/initial',async (req,res)=>{
         res.status(400).send(error);
     }
 })
-app.post('/login', async (req, res) => {
+app.post('/verify', async (req, res) => {
     console.log("made post request");
     try {
         console.log("inside try block");
 
         if (req.body.password) {
             if(req.body.password==="zero"){
-                res.render('login', { msg: 'Error: No Face Detected.' }) 
+                res.render('verify', { msg: 'Error: No Face Detected.' }) 
             }else if(req.body.password==="many"){
-                res.render('login', { msg: 'Error: Multiple Faces Detected.' })  
+                res.render('verify', { msg: 'Error: Multiple Faces Detected.' })  
             }else if(req.body.password==="unknown"){
-                res.render('login', { msg: 'Error: Face Not Registered. Try Again.' })
+                res.render('verify', { msg: 'Error: Face Not Registered. Try Again.' })
             }else if(req.body.password==="abc"){
-                res.render('login',{msg: 'Error: Wait for complete verification.'})
+                res.render('verify',{msg: 'Error: Wait for complete verification.'})
             }else{
                 res.render('index');
             }
              console.log(req.body.password);   
            
         } else {
-            res.render('login', { msg: 'Error: Please verify your account first.' })
+            res.render('verify', { msg: 'Error: Please verify your account first.' })
         }
     } catch (error) {
 
@@ -145,7 +157,7 @@ app.post('/register', async (req, res) => {
                 })
 
                 const registered = userinfo.save();
-                res.status(200).render('initial');
+                res.status(200).render('login');
 
             }
 

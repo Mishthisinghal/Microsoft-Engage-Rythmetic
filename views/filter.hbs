@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../index.css">
+    <script defer src="../face-api.min.js"></script>
+    <script defer src="../filter.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="menu_side">
+            <h1>App Name</h1>
+            <div class="playlist">
+                <h4 class="active"><span></span><i class="bi bi-music-note-beamed"></i>Playlist</h4>
+                <div id="mood">{{moodtype}}</div>
+            </div>
+            <div class="menu_song">
+                <li id="i1" class="songItem happy">
+                    <img src="img/1.jpg" alt="Ed Sheeran">
+                    <h5>
+                        Perfect<br>
+                        <div class="subtitle">Ed Sheeran</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="1"></i>
+
+                </li>
+                <li class="songItem happy" id="i2">
+                    <img src="img/2.jpg" alt="Taylor Swift">
+                    <h5>
+                        Ude Dil Befikre<br>
+                        <div class="subtitle">Benny Dayal</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="2"></i>
+
+                </li>
+                <li class="songItem sad">
+                    <img src="img/3.jpg" alt="Alan">
+                    <h5>
+                        Tu Jaane Na<br>
+                        <div class="subtitle">Atif Aslam</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="3"></i>
+
+                </li>
+                <li class="songItem sad">
+                    <img src="../img/4.jpg" alt="Alan">
+                    <h5>
+                        Doing It Wrong<br>
+                        <div class="subtitle">Drake</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="4"></i>
+
+                </li>
+                <li class="songItem sad">
+                    <img src="../img/5.jpg" alt="Alan">
+                    <h5>
+                        Banjaara<br>
+                        <div class="subtitle">Mohammed Irfan</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="5"></i>
+
+                </li>
+                <li class="songItem suprised">
+                    <img src="../img/6.jpg" alt="Alan">
+                    <h5>
+                        Thehar Ja<br>
+                        <div class="subtitle">Armaan Malik</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="6"></i>
+
+                </li>
+                <li class="songItem happy">
+                    <img src="../img/7.jpg" alt="Alan">
+                    <h5>
+                        Dil Chahta Hai<br>
+                        <div class="subtitle">Shankar Mahadevan</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="7"></i>
+
+                </li>
+                <li class="songItem suprised">
+                    <img src="../img/8.jpg" alt="Alan">
+                    <h5>
+                        No Lie<br>
+                        <div class="subtitle">Sean Paul</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="8"></i>
+
+                </li>
+                <li class="songItem angry">
+                    <img src="../img/9.jpg" alt="Alan">
+                    <h5>
+                        Such a Whore<br>
+                        <div class="subtitle">JVLA</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="9"></i>
+
+                </li>
+                <li class="songItem angry">
+                    <img src="../img/10.jpg" alt="Alan">
+                    <h5>
+                        Toxic<br>
+                        <div class="subtitle">Britney Spears</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="10"></i>
+
+                </li>
+                <li class="songItem happy">
+                    <img src="../img/11.jpg" alt="Alan">
+                    <h5>
+                        Tide is High<br>
+                        <div class="subtitle">Atomic Kitten</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="11"></i>
+
+                </li>
+                <li class="songItem happy">
+                    <img src="../img/12.jpg" alt="Alan">
+                    <h5>
+                        Dil Dhadakne Do<br>
+                        <div class="subtitle">Priyanka Chopra</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="12"></i>
+
+                </li>
+                <li class="songItem sad">
+                    <img src="../img/13.jpg" alt="Alan">
+                    <h5>
+                        Bhula Dena<br>
+                        <div class="subtitle">Mustafa Zahid</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="13"></i>
+
+                </li>
+                <li class="songItem suprised">
+                    <img src="../img/14.jpg" alt="Alan">
+                    <h5>
+                        Unstoppable<br>
+                        <div class="subtitle">Sia</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="14"></i>
+
+                </li>
+                <li class="songItem sad">
+                    <img src="../img/15.jpg" alt="Alan">
+                    <h5>
+                        Good as Hell<br>
+                        <div class="subtitle">Lizzo</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="15"></i>
+
+                </li>
+                <li class="songItem">
+                    <img src="../img/16.jpg" alt="Alan">
+                    <h5>
+                        22<br>
+                        <div class="subtitle">Taylor Swift</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="16"></i>
+
+                </li>
+                <li class="songItem sad">
+                    <img src="../img/17.jpg" alt="Alan">
+                    <h5>
+                        Mann Mera<br>
+                        <div class="subtitle">Gajendra Verma</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="17"></i>
+
+                </li>
+                <li class="songItem sad">
+                    <img src="../img/18.jpg" alt="Alan">
+                    <h5>
+                        Lovely<br>
+                        <div class="subtitle">Billie Eillish and Khalid</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="18"></i>
+
+                </li>
+                <li class="songItem">
+                    <img src="../img/19.jpg" alt="Alan">
+                    <h5>
+                        Memories<br>
+                        <div class="subtitle">Maroon 5</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="19"></i>
+
+                </li>
+                <li class="songItem">
+                    <img src="../img/20.jpg" alt="Alan">
+                    <h5>
+                        Vaaste<br>
+                        <div class="subtitle">Dhvani Bhanushali</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="20"></i>
+
+                </li>
+
+            </div>
+        </div>
+        <div class="song_side">
+            <nav>
+                <ul>
+                    <li>HOME <span></span></li>
+
+                    <li id="moodbtn"><a href="/mood">MY MOOD</a></li>
+
+                    <li id="shopbtn"><a href="/ecomm">SHOP NOW</a></li>
+                </ul>
+                <div id="searchmusic">
+                    <div class="searching">
+                        <input id="search-input" type="text" placeholder="Search Music...">
+                    </div>
+
+                    <i id="search" class="bi bi-search"></i>
+                </div>
+
+                <div class="logout">
+                    <a href="/login">
+                        <i class="bi bi-power"></i>
+                    </a>
+                </div>
+
+            </nav>
+            <div class="content">
+                <h1>Alan Walker-Faded</h1>
+                <p>
+                    You were the shadow to my light Did you feel us Another start You Walker-Fade<br>
+                    Away afraid our aim is out of sight Wanna see us Alive
+                </p>
+                <div class="buttons">
+                    <button>PLAY</button>
+                    <button>FOLLOW</button>
+                </div>
+            </div>
+            <div class="popular_song">
+                <div class="h4">
+                    <h5>Top Hindi Hits</h5>
+                    <div class="btn_s">
+                        <i class="bi bi-arrow-left" id="left_scroll"></i>
+                        <i class="bi bi-arrow-right" id="right_scroll"></i>
+
+                    </div>
+                </div>
+                <div class="pop_song">
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/21.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="21"></i>
+                        </div>
+                        <h5>
+                            Shayad
+                        </h5>
+                    </li>
+                    <li class="songItem" id="i22">
+                        <div class="img_play">
+                            <img src="img/22.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="22"></i>
+                        </div>
+                        <h5>
+                            Kabira
+                        </h5>
+                    </li>
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/23.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="23"></i>
+                        </div>
+                        <h5>
+                            Srivalli
+                        </h5>
+                    </li>
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/24.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="24"></i>
+                        </div>
+                        <h5>
+                            Chaka Chak
+                        </h5>
+                    </li>
+                    <li class="songItem sad">
+                        <div class="img_play">
+                            <img src="img/25.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="25"></i>
+                        </div>
+                        <h5>
+                            Humdard
+                        </h5>
+                    </li>
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/26.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="26"></i>
+                        </div>
+                        <h5>
+                            Lut Gaye
+                        </h5>
+                    </li>
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/27.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="27"></i>
+                        </div>
+                        <h5>
+                            Nadiyon Paar
+                        </h5>
+                    </li>
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/28.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="28"></i>
+                        </div>
+                        <h5>
+                            Mehrama
+                        </h5>
+                    </li>
+                    <li class="songItem happy">
+                        <div class="img_play">
+                            <img src="img/29.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="29"></i>
+                        </div>
+                        <h5>
+                            Love You Zindagi
+                        </h5>
+                    </li>
+                    <li class="songItem happy">
+                        <div class="img_play">
+                            <img src="img/30.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="30"></i>
+                        </div>
+                        <h5>
+                            Garmi
+                        </h5>
+                    </li>
+                    <li class="songItem suprised">
+                        <div class="img_play">
+                            <img src="img/31.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="31"></i>
+                        </div>
+                        <h5>
+                            Hauli Hauli
+                        </h5>
+                    </li>
+                    <li class="songItem angry">
+                        <div class="img_play">
+                            <img src="img/32.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="32"></i>
+                        </div>
+                        <h5>
+                            Just go to Hell Dil
+                        </h5>
+                    </li>
+                </div>
+            </div>
+
+            <div class="popular_song">
+                <div class="h4">
+                    <h5>Top English Hits</h5>
+                    <div class="btn_s">
+                        <i id="left_scrolls" class="bi bi-arrow-left"></i>
+                        <i id="right_scrolls" class="bi bi-arrow-right"></i>
+
+                    </div>
+                </div>
+                <div class="item">
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/33.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="33"></i>
+                        </div>
+                        <h5>
+                            Faded
+                        </h5>
+                    </li>
+                    <li class="songItem happy">
+                        <div class="img_play">
+                            <img src="img/34.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="34"></i>
+                        </div>
+                        <h5>
+                            Sunday Best
+                        </h5>
+                    </li>
+                    <li class="songItem sad">
+                        <div class="img_play">
+                            <img src="img/35.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="35"></i>
+                        </div>
+                        <h5>
+                            Attention
+                        </h5>
+                    </li>
+                    <li class="songItem sad">
+                        <div class="img_play">
+                            <img src="img/36.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="36"></i>
+                        </div>
+                        <h5>
+                            Traitor
+                        </h5>
+                    </li>
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/37.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="37"></i>
+                        </div>
+                        <h5>
+                            Shape of You
+                        </h5>
+                    </li>
+                    <li class="songItem suprised">
+                        <div class="img_play">
+                            <img src="img/38.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="38"></i>
+                        </div>
+                        <h5>
+                            Mood
+                        </h5>
+                    </li>
+                    <li class="songItem angry">
+                        <div class="img_play">
+                            <img src="img/39.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="39"></i>
+                        </div>
+                        <h5>
+                            Bad Guy
+                        </h5>
+                    </li>
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/40.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="40"></i>
+                        </div>
+                        <h5>
+                            So What
+                        </h5>
+                    </li>
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/41.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="41"></i>
+                        </div>
+                        <h5>
+                            Photograph
+                        </h5>
+                    </li>
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/42.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="42"></i>
+                        </div>
+                        <h5>
+                            Numb
+                        </h5>
+                    </li>
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/43.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="43"></i>
+                        </div>
+                        <h5>
+                            Sorry
+                        </h5>
+                    </li>
+                    <li class="songItem">
+                        <div class="img_play">
+                            <img src="img/44.jpg" alt="lyz">
+                            <i class="bi playListPlay bi-play-circle-fill" id="44"></i>
+                        </div>
+                        <h5>
+                            Counting Stars
+                        </h5>
+                    </li>
+                </div>
+            </div>
+
+        </div>
+        <div class="master_play">
+            <div class="wave">
+                <div class="wave1"></div>
+                <div class="wave1"></div>
+                <div class="wave1"></div>
+            </div>
+            <img src="img/1.jpg" alt="Alan" id="poster_master_play">
+            <h5 id="title">Perfect<br>
+                <div class="subtitle">Ed Sheeran</div>
+            </h5>
+            <div class="icon">
+                <i class="bi bi-skip-start-fill" id="back"></i>
+                <i class="bi bi-play-fill" id="masterPlay"></i>
+                <i class="bi bi-skip-end-fill" id="next"></i>
+            </div>
+            <span id="currentStart">0:00</span>
+            <div class="bar">
+                <input type="range" id="seek" min="0" value="0" max="100">
+                <div class="bar2" id="bar2"></div>
+                <div class="dot"></div>
+            </div>
+            <span id="currentEnd">0:00</span>
+            <div class="vol">
+                <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+                <input type="range" id="vol" min="0" value="30" max="100">
+                <div class="vol_bar"></div>
+                <div class="dot" id="vol_dot"></div>
+            </div>
+        </div>
+    </header>
+
+</body>
+
+</html>

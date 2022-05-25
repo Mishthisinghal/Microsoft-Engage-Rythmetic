@@ -10,11 +10,11 @@ let progress=document.getElementById('progress');
 // const mymodule=require('./analyze');
 
 Promise.all([
-  faceapi.nets.tinyFaceDetector.loadFromUri('../models'),
-  faceapi.nets.faceLandmark68Net.loadFromUri('../models'),
-  faceapi.nets.faceRecognitionNet.loadFromUri('../models'),
-  faceapi.nets.faceExpressionNet.loadFromUri('../models'),
-  faceapi.nets.ssdMobilenetv1.loadFromUri('../models')
+  faceapi.nets.tinyFaceDetector.loadFromUri('models'),
+  faceapi.nets.faceLandmark68Net.loadFromUri('models'),
+  faceapi.nets.faceRecognitionNet.loadFromUri('models'),
+  faceapi.nets.faceExpressionNet.loadFromUri('models'),
+  faceapi.nets.ssdMobilenetv1.loadFromUri('models')
 ]).then(startVideo)
 
 async function startVideo(){
@@ -50,13 +50,13 @@ function convertCanvasToImage() {
 
 
 async function detectimage(image){
-    const container=document.getElementById('image')
+    const container=document.getElementById('image');
     // container.style.position=
     // document.body.append(container)
-    const LabeledFaceDescriptors=await loadLabeledImages()
-    const faceMatcher=new faceapi.FaceMatcher(LabeledFaceDescriptors,0.6)
+    const LabeledFaceDescriptors=await loadLabeledImages();
+    const faceMatcher=new faceapi.FaceMatcher(LabeledFaceDescriptors,0.6);
     
-    container.append(image)
+    container.append(image);
     const canvas = faceapi.createCanvas(video);
     
     container.append(canvas);
@@ -68,10 +68,12 @@ async function detectimage(image){
     if(detections.length===0){
       console.log("zero");
       password.value="zero"
+      progress.innerHTML="No face Detected.Reload and Try Again."
     }
     else if(detections.length>1){
       console.log("many");
       password.value="many"
+      progress.innerHTML="Multiple faces detected.Reload and Try Again."
     }
     else{
 
@@ -103,10 +105,10 @@ function loadLabeledImages(){
     labels.map(async label =>{
       const descriptions = []
       const img = await faceapi.fetchImage(imgurl);
-      const detections=await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
-      descriptions.push(detections.descriptor)
+      const detections=await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor();
+      descriptions.push(detections.descriptor);
 
-      return new faceapi.LabeledFaceDescriptors(label,descriptions)
+      return new faceapi.LabeledFaceDescriptors(label,descriptions);
     })
   )
 

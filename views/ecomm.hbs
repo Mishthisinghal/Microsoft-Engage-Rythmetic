@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Page</title>
+    <link rel="stylesheet" href="../ecomm.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script defer src="../ecomm.js"></script>
+</head>
+
+<body>
+    <form action="/ecomm">
+        {{!-- Header --}}
+        <header>
+            {{!-- Nav --}}
+            <div class="nav container">
+                <a href="#" class="logo"><img src="../img/navlogo.png" alt="Rythmetic"></a>
+                {{!-- Cart Icon --}}
+                <i class="bx bx-shopping-bag" id="cart-icon"></i>
+                {{!-- Cart --}}
+                <div class="cart">
+                    <div class="cart-title">
+                        YOUR CART
+                    </div>
+                    {{!-- Content --}}
+                    <div class="cart-content">
+                        
+                    </div>
+                    {{!-- Total --}}
+                    <div class="total">
+                        <div class="total-title">Total</div>
+                        <div class="total-price">Rs.0</div>
+                    </div>
+                    {{!-- Buy Button --}}
+                    <button type="button" class="btn-buy">Buy Now</button>
+                    {{!-- Cart Close --}}
+                    <i class="bx bx-x" id="close-cart"></i>
+                </div>
+            </div>
+        </header>
+        {{!-- Shop --}}
+        <section class="shop container">
+            <h2 class="section-title">All Products</h2>
+            {{!-- Content --}}
+            <div class="shop-content">
+                {{!-- Box 1 --}}
+                <div class="product-box">
+                    <img src="img/product1.jpg" alt="" class="product-img">
+                    <h2 class="product-title">in Ear Wired Earphones with Mic</h2>
+                    <span class="price">Rs.350</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+                {{!-- Box 2 --}}
+                <div class="product-box">
+                    <img src="img/product2.jpg" alt="" class="product-img">
+                    <h2 class="product-title">Bluetooth in Ear Earbuds with Mic</h2>
+                    <span class="price">Rs.1550</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+                {{!-- Box 3 --}}
+                <div class="product-box">
+                    <img src="img/product3.jpg" alt="" class="product-img">
+                    <h2 class="product-title">Dual Driver Wired in Ear</h2>
+                    <span class="price">Rs.799</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+                {{!-- Box 4 --}}
+                <div class="product-box">
+                    <img src="img/product4.jpg" alt="" class="product-img">
+                    <h2 class="product-title">Wireless in Ear Earphones with Mic</h2>
+                    <span class="price">Rs.899</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+                {{!-- Box 5 --}}
+                <div class="product-box">
+                    <img src="img/product5.jpg" alt="" class="product-img">
+                    <h2 class="product-title">Wireless On Ear Headphones</h2>
+                    <span class="price">Rs.1099</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+                {{!-- Box 6 --}}
+                <div class="product-box">
+                    <img src="img/product6.jpg" alt="" class="product-img">
+                    <h2 class="product-title">Over Ear Headphones with 20Hrs Playback</h2>
+                    <span class="price">Rs.1199</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+                {{!-- Box 7 --}}
+                <div class="product-box">
+                    <img src="img/product7.jpg" alt="" class="product-img">
+                    <h2 class="product-title">Smart Neckband Earphone with Smart Controls</h2>
+                    <span class="price">Rs.1999</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+                {{!-- Box 8 --}}
+                <div class="product-box">
+                    <img src="img/product8.jpg" alt="" class="product-img">
+                    <h2 class="product-title">Bluetooth Speaker with RGB LEDs</h2>
+                    <span class="price">Rs.3999</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+                {{!-- Box 9 --}}
+                <div class="product-box">
+                    <img src="img/product9.jpg" alt="" class="product-img">
+                    <h2 class="product-title">Portable High Bass Wireless Bluetooth Speaker</h2>
+                    <span class="price">Rs.699</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+                {{!-- Box 10 --}}
+                <div class="product-box">
+                    <img src="img/product10.jpg" alt="" class="product-img">
+                    <h2 class="product-title">Wired Earphones with Mic,10mm drivers</h2>
+                    <span class="price">Rs.200</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+                {{!-- Box 11 --}}
+                <div class="product-box">
+                    <img src="img/product11.jpg" alt="" class="product-img">
+                    <h2 class="product-title">in Ear Wired Earphones with Mic(Jazzy Blue)</h2>
+                    <span class="price">Rs.499</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+                {{!-- Box 12 --}}
+                <div class="product-box">
+                    <img src="img/product12.jpg" alt="" class="product-img">
+                    <h2 class="product-title">Wireless Earphones with Magnetic Eartips</h2>
+                    <span class="price">Rs.999</span>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                </div>
+            </div>
+        </section>
+    </form>
+</body>
+
+</html>
