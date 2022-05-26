@@ -7,8 +7,6 @@ let dbname=document.getElementById('dbname').innerText;
 let imgurl=document.getElementById('dbimg').innerText;
 let progress=document.getElementById('progress');
 
-// const mymodule=require('./analyze');
-
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('models'),
   faceapi.nets.faceLandmark68Net.loadFromUri('models'),
@@ -51,8 +49,6 @@ function convertCanvasToImage() {
 
 async function detectimage(image){
     const container=document.getElementById('image');
-    // container.style.position=
-    // document.body.append(container)
     const LabeledFaceDescriptors=await loadLabeledImages();
     const faceMatcher=new faceapi.FaceMatcher(LabeledFaceDescriptors,0.6);
     
@@ -92,11 +88,8 @@ async function detectimage(image){
         progress.innerHTML="Done!"
         document.getElementById('loginbtn').removeAttribute('disabled');
         console.log(password.value);
-    });
-    
-    
+    });  
   }
-
 }
 
 function loadLabeledImages(){
@@ -111,5 +104,4 @@ function loadLabeledImages(){
       return new faceapi.LabeledFaceDescriptors(label,descriptions);
     })
   )
-
 }

@@ -4,11 +4,10 @@ const path = require('path');
 const mongoose = require('mongoose');
 const { body, validationResult } = require("express-validator");
 const { Stream } = require('stream');
-const store = require('store2');
-var looksSame = require('looks-same');
-var img;
-var name;
-// var Rembrandt = require('rembrandt/build/browser')
+// const store = require('store2');
+// var looksSame = require('looks-same');
+// var img;
+// var name;
 
 const url = 'mongodb://127.0.0.1:27017/facerec'
 mongoose.connect(url, { useNewUrlParser: "true", })
@@ -55,27 +54,53 @@ app.use(express.static(public_path));
 app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('register')
 })
 
+// Register page
+app.get('/register', (req, res) => {
+    res.render('register')
+})
+app.post('/register', async (req, res) => {
+    try {
+        if (req.body.name && req.body.email && req.body.password) {
+            email = req.body.email;
+            let usermail = await Register.findOne({ email: email });
+
+            if (usermail) {
+                return res.render('register', { msg: 'Error: Email already registered.Please login' })
+            } else if (req.body.password === "zero") {
+                return res.render('register', { msg: 'Error: No Face Detected. Please Try Again' })
+            } else if (req.body.password === "many") {
+                return res.render('register', { msg: 'Error: Mutiple Faces Detected. Please Try Again' })
+            }
+            else {
+
+                const userinfo = new Register({
+                    name: req.body.name,
+                    email: req.body.email,
+                    img: req.body.password
+                })
+
+                const registered = userinfo.save();
+                res.status(200).render('login');
+
+            }
+
+        }
+        else {
+            res.render('register', { msg: 'Error: Please capture your image.' })
+        }
+
+    } catch (error) {
+        res.status(400).send(error);
+    }
+
+})
+
+// Login Page
 app.get('/login', (req, res) => {
     res.render('login')
-})
-
-app.get('/mood', (req, res) => {
-    res.render('mood')
-})
-app.get('/ecomm', (req, res) => {
-    res.render('ecomm')
-})
-app.post('/mood', (req, res) => {
-    const mood=req.body.moodtype;
-    console.log(mood);
-    res.render('filter',{moodtype:mood});
-})
-
-app.get('/verify', (req, res) => {
-    res.render('verify')
 })
 
 app.post('/login',async (req,res)=>{
@@ -101,10 +126,14 @@ app.post('/login',async (req,res)=>{
         res.status(400).send(error);
     }
 })
+
+// Verification Page
+app.get('/verify', (req, res) => {
+    res.render('verify')
+})
+
 app.post('/verify', async (req, res) => {
-    console.log("made post request");
     try {
-        console.log("inside try block");
 
         if (req.body.password) {
             if(req.body.password==="zero"){
@@ -117,8 +146,7 @@ app.post('/verify', async (req, res) => {
                 res.render('verify',{msg: 'Error: Wait for complete verification.'})
             }else{
                 res.render('index');
-            }
-             console.log(req.body.password);   
+            } 
            
         } else {
             res.render('verify', { msg: 'Error: Please verify your account first.' })
@@ -130,49 +158,22 @@ app.post('/verify', async (req, res) => {
 
 })
 
-app.get('/register', (req, res) => {
-    res.render('register')
-})
-app.post('/register', async (req, res) => {
-    // console.log(imgurl);
-    try {
-        if (req.body.name && req.body.email && req.body.password) {
-            email = req.body.email;
-            let usermail = await Register.findOne({ email: email });
-
-            // console.log(req.body.password);
-            if (usermail) {
-                return res.render('register', { msg: 'Error: Email already registered.Please login' })
-            } else if (req.body.password === "zero") {
-                return res.render('register', { msg: 'Error: No Face Detected. Please Try Again' })
-            } else if (req.body.password === "many") {
-                return res.render('register', { msg: 'Error: Mutiple Faces Detected. Please Try Again' })
-            }
-            else {
-                // console.log(req.body.password);
-                const userinfo = new Register({
-                    name: req.body.name,
-                    email: req.body.email,
-                    img: req.body.password
-                })
-
-                const registered = userinfo.save();
-                res.status(200).render('login');
-
-            }
-
-        }
-        else {
-            res.render('register', { msg: 'Error: Please capture your image.' })
-        }
-
-    } catch (error) {
-        res.status(400).send(error);
-    }
-
+// Mood detection Page
+app.get('/mood', (req, res) => {
+    res.render('mood')
 })
 
+app.post('/mood', (req, res) => {
+    const mood=req.body.moodtype;
+    res.render('filter',{moodtype:mood});
+})
 
+// Ecommerce Page
+app.get('/ecomm', (req, res) => {
+    res.render('ecomm')
+})
+
+// Index Page
 app.get('/index', (req, res) => {
     res.render('index')
 })

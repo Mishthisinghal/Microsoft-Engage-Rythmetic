@@ -224,11 +224,7 @@ canvas {
     #button {
         margin-top: 2rem;
     }
-
-    /* #photo {
-        border-top: 1px solid rgb(165, 237, 237);
-        box-shadow: 0 -5px 5px -5px rgb(168, 225, 225);
-    } */
+    
     #photo{
         border: none;
     }

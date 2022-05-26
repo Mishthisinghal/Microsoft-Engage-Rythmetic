@@ -16,7 +16,6 @@ body {
 header {
     width: 100%;
     height: 100%;
-    /* border: 1px solid #fff; */
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
@@ -27,16 +26,12 @@ header .menu_side,
     position: relative;
     width: 25%;
     height: 90%;
-    /* border: 1px solid white; */
     background-color: #1d1c1c;
-    /* box-shadow: 5px 0px 2px #2d2d2d; */
     color: white;
 }
 
 header .song_side {
     width: 75%;
-    /* background: #272525; */
-
     background-color: #212020;
 }
 
@@ -410,7 +405,6 @@ header .song_side nav {
     width: 96%;
     height: 10%;
     margin: auto;
-    /* border: 1px solid #fff; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -431,17 +425,17 @@ header .song_side nav ul li {
     transition: .3s linear;
 }
 
-header .song_side nav ul #moodbtn a {
+header .song_side nav ul li a {
     text-decoration: none;
     color: #4c5262;
 }
 
-header .song_side nav ul #moodbtn a:hover {
+header .song_side nav ul li a:hover {
     text-decoration: none;
     color: #fff;
 }
 
-header .song_side nav ul #shopbtn a {
+/* header .song_side nav ul #shopbtn a {
     text-decoration: none;
     color: #4c5262;
 }
@@ -449,7 +443,7 @@ header .song_side nav ul #shopbtn a {
 header .song_side nav ul #shopbtn a:hover {
     text-decoration: none;
     color: #fff;
-}
+} */
 
 header .song_side nav ul li:hover {
     color: #fff;
@@ -536,7 +530,6 @@ header .song_side .content {
     width: 90%;
     height: 28%;
     margin: auto;
-    /* border: 1px solid #fff; */
     padding-top: 20px;
 }
 
@@ -589,7 +582,6 @@ header .song_side .content .buttons button:nth-child(2):hover {
 header .song_side .popular_song {
     width: 90%;
     height: auto;
-    /* border: 1px solid #fff; */
     margin: auto;
     margin-top: 10px;
 
@@ -740,6 +732,12 @@ header .song_side .popular_song .item li h5 {
 
 /* Responsive */
 @media (max-width:750px) {
+    header .song_side nav #searchmusic{
+        justify-content: left;
+    }
+    header .song_side nav .searching{
+        width: 65%;
+    }
     header .menu_side .menu_song li {
         padding-left: 0px;
     }
@@ -756,19 +754,24 @@ header .song_side .popular_song .item li h5 {
         display: none;
     }
 }
+@media (max-width:600px){
+    header .song_side nav .logout{
+        right: 6%;
+    }
+}
 
 @media (max-width:550px) {
     header .song_side nav{
         justify-content: none;
     }
-    header .song_side nav #searchmusic{
-        justify-content: none;
+    header .song_side nav ul{
+        padding-left: 1rem;
     }
     header .song_side nav .searching{
         width: 50%;
     }
     header .song_side nav .logout{
-        right: 10%;
+        right: 14%;
     }
     header .menu_side h1 img{
         margin-left: 10px;

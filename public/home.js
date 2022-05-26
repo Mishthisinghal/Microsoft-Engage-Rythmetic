@@ -1,5 +1,5 @@
-const music = new Audio("vande.mp3");
-// music.play();
+const music = new Audio("https://github.com/Mishthisinghal/audio/blob/main/audio/1.mp3?raw=true");
+
 
 const songs = [
   {
@@ -346,12 +346,11 @@ Array.from(document.getElementsByClassName('playListPlay')).forEach((element) =>
     makeAllPlays();
     e.target.classList.remove('bi-play-circle-fill');
     e.target.classList.add('bi-pause-circle-fill');
-    music.src = `audio/${index}.mp3`;
-    // music.src = `https://github.com/Mishthisinghal/audio/tree/main/audio/${index}.mp3`;
+
+    music.src = `https://github.com/Mishthisinghal/audio/blob/main/audio/${index}.mp3?raw=true`;
 
     poster_master_play.src = `img/${index}.jpg`;
-    // const audio = new Audio(music);
-    // audio.play();
+
     music.play();
     let song_title = songs.filter((ele) => {
       return ele.id == index;
@@ -371,9 +370,6 @@ Array.from(document.getElementsByClassName('playListPlay')).forEach((element) =>
 
     makeAllBackgrounds();
     Array.from(document.getElementsByClassName('songItem'))[`${index - 1}`].style.background = "rgb(105,105,170,.1)";
-
-
-
   })
 })
 
@@ -460,8 +456,8 @@ back.addEventListener('click', () => {
     index = Array.from(document.getElementsByClassName('songItem')).length;
   }
 
-  music.src = `audio/${index}.mp3`;
-  // music.src=`https://drive.google.com/file/d/1vfk2Krv2H0CYmHe2tLQ4wWgOv6eTVrF7/view`;
+  music.src = `https://github.com/Mishthisinghal/audio/blob/main/audio/${index}.mp3?raw=true`;
+
   poster_master_play.src = `img/${index}.jpg`;
   music.play();
   let song_title = songs.filter((ele) => {
@@ -488,7 +484,8 @@ next.addEventListener('click', () => {
     index = 1;
   }
 
-  music.src = `audio/${index}.mp3`;
+  music.src = `https://github.com/Mishthisinghal/audio/blob/main/audio/${index}.mp3?raw=true`;
+
   poster_master_play.src = `img/${index}.jpg`;
   music.play();
   let song_title = songs.filter((ele) => {
@@ -524,10 +521,12 @@ let left_scrolls = document.getElementById('left_scrolls');
 let right_scrolls = document.getElementById('right_scrolls');
 let item = document.getElementsByClassName('item')[0];
 
+// left scrollbar
 left_scrolls.addEventListener('click', () => {
   item.scrollLeft -= 100;
 })
 
+// right scrollbar
 right_scrolls.addEventListener('click', () => {
   item.scrollLeft += 100;
 })
