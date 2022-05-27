@@ -77,17 +77,32 @@ async function detectimage(image){
     console.log(detections.length);
     console.log(displaySize);
 
-    // console.log(mymodule.name);
     const resizedDetections=faceapi.resizeResults(detections,displaySize);
     const results=resizedDetections.map(d=>faceMatcher.findBestMatch(d.descriptor))
     results.forEach((result,i)=>{
         const box=resizedDetections[i].detection.box
-        const drawBox=new faceapi.draw.DrawBox(box,{label:result.toString()})
+        let start=result.toString().indexOf('(');
+        let end=result.toString().length;
+        let percent=result.toString().substr(start+1,end-2);
+        percent=percent.substr(0,4);
+        let label=result.toString();
+        if(percent<0.3){
+          label="unknown";
+        }
+        const drawBox=new faceapi.draw.DrawBox(box,{label:label})
         drawBox.draw(canvas)
         password.value=result.toString().substr(0,7);
+        console.log(percent.length);
+        
+        console.log(percent);
+        if(percent<0.3){
+          password.value="unknown";
+          progress.innerHTML="face dont match"
+        }else{
         progress.innerHTML="Done!"
         document.getElementById('loginbtn').removeAttribute('disabled');
         console.log(password.value);
+        }
     });  
   }
 }
@@ -99,7 +114,12 @@ function loadLabeledImages(){
       const descriptions = []
       const img = await faceapi.fetchImage(imgurl);
       const detections=await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor();
-      descriptions.push(detections.descriptor);
+      if(detections){
+        descriptions.push(detections.descriptor);
+      }
+      else{
+        progress.innerHTML="Done!"
+      }
 
       return new faceapi.LabeledFaceDescriptors(label,descriptions);
     })
