@@ -47,13 +47,45 @@
 4. During face recognition, remember that the confidence score of the api is low therefore similar faces may be considered same.
 
 ## Getting Started
-1. `git clone https://github.com/Apurva-tech/unite.git` 
-2. `cd ./unite`
+
+### Prerequisites
+
+Have NodeJS and MongoDB installed on your machine.
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Mishthisinghal/Microsoft-Engage-Rythmetic.git
+   ```
+2. ```sh
+   cd ./Microsoft-Engage-Rythmetic
+   ```
 3. Install node dependencies 
-   - `npm install`
-4. Replace firebase API keys with your configurations
-5. Create a `.env` file 
-   - Add relevant credentials
-   - `cp .env.example .env` 
-5. `npm run dev`
-6. The app is now running at http://localhost:3030/landing 
+   ```sh
+   npm install
+   ```
+4. Create a new .env file in root directory.
+5. Gain Mongo connection string from Mongo DB and paste in .env as DATABASE
+    ```sh
+    DATABASE=mongodb+srv://mongodb_connection_string
+    ```
+6. Start the server
+   ```sh
+   npm run start
+   ```
+7. The app is now running at http://localhost:3000/
+
+## Useful Links
+
+- [Deployed Website](https://microsoft-engage-rythmetic.herokuapp.com/)
+- [Demo Video]()
+- [Design Document](https://www.figma.com/file/6ms4jHHEhMiatrPmth9TBP/Untitled?node-id=0%3A1)
+
+## Need help?
+
+Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/mishthi-singhal-97a688201/) 
+
+[![Instagram](https://img.shields.io/badge/Instagram-follow-purple.svg?logo=instagram&logoColor=white)](https://www.instagram.com/mishthisinghal/) [![Twitter](https://img.shields.io/badge/Twitter-follow-blue.svg?logo=twitter&logoColor=white)](https://twitter.com/mishthi_singhal)
+
+---------
