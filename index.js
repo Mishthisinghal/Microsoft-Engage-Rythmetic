@@ -4,13 +4,14 @@ const path = require('path');
 const mongoose = require('mongoose');
 const { body, validationResult } = require("express-validator");
 const { Stream } = require('stream');
+require('dotenv').config();
 // const store = require('store2');
 // var looksSame = require('looks-same');
 // var img;
 // var name;
 
-const url = 'mongodb://127.0.0.1:27017/facerec'
-mongoose.connect(url, { useNewUrlParser: "true", })
+const mongouri = process.env.DATABASE;
+mongoose.connect(mongouri, { useNewUrlParser: "true", })
 mongoose.connection.on("error", err => {
     console.log("err", err)
 })
